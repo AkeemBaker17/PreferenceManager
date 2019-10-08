@@ -1,4 +1,4 @@
-# PreferenceManager
+# Preference Manager
 Preference Manager Automation
 
 # Notes
