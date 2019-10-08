@@ -3,13 +3,12 @@ import { Given, Then, When, setDefaultTimeout } from "cucumber";
 //Importing Page Objects
 import { LoginPage } from "../page-objects/loginPage";
 import { LandingPage } from "../page-objects/landingPage";
-import { isPending } from "q";
-import { element, by, browser } from "protractor";
+//import { isPending } from "q";
+//import { element, by, browser } from "protractor";
 
 //Creating Page Objects
 const loginPage: LoginPage = new LoginPage();
 const landingPage: LandingPage = new LandingPage();
-
 
 //Assertion - Telling Cucumber if the Test is a Pass or Fail
 const chai = require("chai").use(require("chai-as-promised"));
@@ -19,15 +18,17 @@ setDefaultTimeout(60 * 1000);
 
 Given('The Login page is displayed', function () {
   this.actions.clear(loginPage.txtUsername)
-  return this.actions.clear(loginPage.txtPassword);
+  return this.actions.clear(loginPage.txtPassword);  
 });
 
-Given('The User enters a correct Username {string} and Password {string}', function (username, password) {
-  this.usernameWorld = username;
-  this.passwordWorld = password;
+Given('The User enters a correct Username {string} and Password {string}', function (usernameFromFeatureFile, passwordFromFeatureFile) {
+  //this.usernameWorld = username;
+  //this.passwordWorld = password;
 
-  this.actions.sendKeys(loginPage.txtUsername, this.usernameWorld);
-  return this.actions.sendKeys(loginPage.txtPassword, this.passwordWorld);
+  this.loginDetails = { username: usernameFromFeatureFile, password: passwordFromFeatureFile}
+
+  this.actions.sendKeys(loginPage.txtUsername, this.loginDetails.username);
+  return this.actions.sendKeys(loginPage.txtPassword, this.loginDetails.password);
 });
 
 Given('The User clicks the Login button', function () {
@@ -35,7 +36,7 @@ Given('The User clicks the Login button', function () {
 });
 
 Then('The Landing Page is displayed and the Username {string} is shown', function (username) {
-  return expect(landingPage.verifyUserLoggedIn(username).isPresent()).to.eventually.be.true;
+  return expect(this.actions.isPresent((landingPage.verifyUserLoggedIn(this.loginDetails)))).to.eventually.be.true;
 });
 
 

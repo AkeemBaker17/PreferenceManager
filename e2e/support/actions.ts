@@ -22,4 +22,9 @@ export class Actions {
             await browser.wait(ExpectedConditions.visibilityOf(row));
             await tableElement.all(by.cssContainingText(rowSelector, text)).first().click();
         }
+    
+        public isPresent = async (element: ElementFinder) => {
+            await browser.wait(ExpectedConditions.visibilityOf(element));
+            return element.isPresent()
+          }
 }

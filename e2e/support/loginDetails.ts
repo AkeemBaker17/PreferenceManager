@@ -12,7 +12,7 @@ declare module "cucumber"
 
         actions: Actions;
 
-        usernameWorld: string;
-        passwordWorld: string;
+        //usernameWorld: string;
+        //passwordWorld: string;
     }
 }
