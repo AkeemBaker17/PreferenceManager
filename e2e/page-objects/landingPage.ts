@@ -8,6 +8,7 @@ export class LandingPage
     
     //Identifying the Username displayed on the Landing Page
     public txtUsernameLandingPage = $("#Label1");
+    public btnLogout = $("#Button6");
 
     //Checking the Username displayed on the Landing Page against the Username entered in the Login page
     public verifyUserLoggedIn = (loginDetails: myLibrary.LoginDetails) =>
