@@ -12,6 +12,9 @@ export class LandingPage
 
     //Identifying the Page Header displayed when you click on the navigation buttons
     public txtPageHeader = $("#lblHeader");
+    
+    //Navigation buttons
+    public btnByGroup = $("#Button1");
 
     //Checking the Username displayed on the Landing Page against the Username entered in the Login page
     public verifyUserLoggedIn = (loginDetails: myLibrary.LoginDetails) =>

@@ -35,7 +35,7 @@ Given('The Login page is displayed', function () {
   });
 
   Given('The User is Logged in', function () {
-    return 
+    return this.actions.click(landingPage.btnByGroup);
   });
 
   Given('The Landing Page is displayed', function () {
