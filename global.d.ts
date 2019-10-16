@@ -6,4 +6,9 @@ declare namespace myLibrary
         username: string;
         password: string;
     }
+
+    interface pageNames
+    {
+        pageName: string;
+    }
 }

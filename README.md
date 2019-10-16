@@ -17,7 +17,7 @@ Preference Manager Automation
 # Protractor.config.ts
 - This file is used to link together the Step Definitions and Feature files
 
-# The 'World' file
+# The 'World' file (loginDetails.ts)
 - This is where the Global Functions and Variables used throughout the Project are kept
 - Variables are included in the World in order to share data between Step Functions
 

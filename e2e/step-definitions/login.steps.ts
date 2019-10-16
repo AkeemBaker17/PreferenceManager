@@ -16,26 +16,21 @@ setDefaultTimeout(60 * 1000);
 
 Given('The Login page is displayed', function () {
   this.actions.clear(loginPage.txtUsername)
-  this.actions.clear(loginPage.txtPassword);
-  return console.log("The Username and Password fields are cleared");
+  return this.actions.clear(loginPage.txtPassword);
 });
 
 Given('The User enters a correct Username {string} and Password {string}', function (usernameFromFeatureFile, passwordFromFeatureFile) {
-  this.loginDetails = { username: usernameFromFeatureFile, password: passwordFromFeatureFile}
+  this.loginDetails = {username: usernameFromFeatureFile, password: passwordFromFeatureFile}
 
   this.actions.sendKeys(loginPage.txtUsername, this.loginDetails.username);
-  this.actions.sendKeys(loginPage.txtPassword, this.loginDetails.password);
-  return console.log("The Username and Password are entered into the Login screen");
+  return this.actions.sendKeys(loginPage.txtPassword, this.loginDetails.password);
 });
 
 Given('The User clicks the Login button', function () {
-  this.actions.click(loginPage.btnLogin);
-  return console.log("The Login button is clicked");
-  
+  return this.actions.click(loginPage.btnLogin);
 });
 
 Then('The Landing Page is displayed and the Username {string} is shown', function (username) {
   expect(this.actions.isPresent((landingPage.verifyUserLoggedIn(this.loginDetails)))).to.eventually.be.true;
-  this.actions.click(landingPage.btnLogout);
-  return console.log("The Username displayed on the Landing Page matches the one entered into the Login screen");
+  return this.actions.click(landingPage.btnLogout);
 });

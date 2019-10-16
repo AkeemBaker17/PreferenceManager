@@ -1,6 +1,6 @@
 Feature: Login
 
-Scenario Outline: Login to Preference manager using the correct Username and Password
+Scenario Outline: Login to Preference Manager using the correct Username and Password
 
 Given The Login page is displayed
 And The User enters a correct Username '<Username>' and Password '<Password>'

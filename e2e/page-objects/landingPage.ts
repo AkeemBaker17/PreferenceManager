@@ -10,10 +10,19 @@ export class LandingPage
     public txtUsernameLandingPage = $("#Label1");
     public btnLogout = $("#Button6");
 
+    //Identifying the Page Header displayed when you click on the navigation buttons
+    public txtPageHeader = $("#lblHeader");
+
     //Checking the Username displayed on the Landing Page against the Username entered in the Login page
     public verifyUserLoggedIn = (loginDetails: myLibrary.LoginDetails) =>
     {
         //#Label1 = The Username displayed on the Landing Page
         return element(by.cssContainingText("#Label1",loginDetails.username));
+    }
+
+    public verifyPageName = (pageNames: myLibrary.pageNames) =>
+    {
+        //#lblHeader = The Page Name displayed
+        return element(by.cssContainingText("#lblHeader",pageNames.pageName))
     }
 }
