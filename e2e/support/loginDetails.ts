@@ -9,6 +9,7 @@ declare module "cucumber"
     {
         //Where we stored our Test Data - Username and Password from the global.d.ts
         loginDetails: myLibrary.LoginDetails;
+        pageNames: myLibrary.pageNames;
 
         actions: Actions;
 

@@ -14,39 +14,11 @@ const expect = chai.expect;
 
 setDefaultTimeout(60 * 1000);
 
-Given('The Login page is displayed', function () {
-    this.actions.clear(loginPage.txtUsername)
-    return this.actions.clear(loginPage.txtPassword);
-  });
-  
-  Given('The User enters a correct Username {string} and Password {string}', function (usernameFromFeatureFile, passwordFromFeatureFile) {
-    this.loginDetails = {username: usernameFromFeatureFile, password: passwordFromFeatureFile}
-  
-    this.actions.sendKeys(loginPage.txtUsername, this.loginDetails.username);
-    return this.actions.sendKeys(loginPage.txtPassword, this.loginDetails.password);
-  });
-  
-  Given('The User clicks the Login button', function () {
-    return this.actions.click(loginPage.btnLogin);
-  });
-  
-  Then('The Landing Page is displayed and the Username {string} is shown', function (username) {
-    return expect(this.actions.isPresent((landingPage.verifyUserLoggedIn(this.loginDetails)))).to.eventually.be.true;
-  });
-
-  Given('The User is Logged in', function () {
+  Given('The User clicks the Navigation Buttons', function () {
     return this.actions.click(landingPage.btnByGroup);
   });
 
-  Given('The Landing Page is displayed', function () {
-    return 
+  Then('The correct Page is displayed and the Header {string} is shown', function (pageName) {
+    this.pageNames = {pageName: pageName}
+    return expect(this.actions.isPresent((landingPage.verifyPageName(this.pageNames)))).to.eventually.be.true;
   });
-
-  Given('The User clicks the Navigation Buttons', function () {
-    return 
-  });
-
-  Then('The correct Page is displayed and The Header {string} is shown', function (pageNameFromFeatureFile) {
-    return 
-  });
-

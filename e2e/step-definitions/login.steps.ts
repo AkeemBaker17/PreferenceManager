@@ -31,6 +31,5 @@ Given('The User clicks the Login button', function () {
 });
 
 Then('The Landing Page is displayed and the Username {string} is shown', function (username) {
-  expect(this.actions.isPresent((landingPage.verifyUserLoggedIn(this.loginDetails)))).to.eventually.be.true;
-  return this.actions.click(landingPage.btnLogout);
+  return expect(this.actions.isPresent((landingPage.verifyUserLoggedIn(this.loginDetails)))).to.eventually.be.true;
 });

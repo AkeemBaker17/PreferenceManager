@@ -1,6 +1,5 @@
 import { After, Before, Status } from "cucumber";
 import { browser } from "protractor";
-
 import {Actions} from "./actions";
 
 //Runs before every Scenario
