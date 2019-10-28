@@ -1,12 +1,10 @@
 Feature: Verify Page Names
 
-Scenario Outline: Verify that the correct Page Names are displayed when navigating around Preference Manager
+Background: A user is logged in
+Given a user is logged in
 
-Background: A user logs in
-
-Given The User clicks the Navigation Buttons
-Then The correct Page is displayed and the Header '<Header>' is shown
-
+Scenario Outline: Verify the Page Names
+Then Page Name <PageName> is displayed in the header for each <Page>
 Examples:
-| Header    |
-| By Groups |
+| Page       | PageName       |
+| By Group   | By Group       |
